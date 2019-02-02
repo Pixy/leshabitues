@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_USER: leshabitues
+      MYSQL_PASSWORD: leshabitues
+      MYSQL_DATABASE: leshabitues
+    ports:
+      - "3306:3306"
+    depends_on:
+      - adminer
+
+  app:
+    build:
+      context: ./
+    depends_on:
+      - db
+    volumes:
+      - ./app/:/app
+    ports:
+      - "80:80"
+    stdin_open: true
+    tty: true
