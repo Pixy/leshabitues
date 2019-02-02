@@ -33,7 +33,7 @@ $factory->define(App\Shop::class, function () {
         'name' => $shopName,
         'chain' => $shopName,
         'address' => $faker->address,
-        'zipCode' => $faker->postcode,
+        'zipCode' => $faker->numberBetween(),
         'category_id' => $category_id,
         'category_name' => $category_name,
         'logo' => $faker->imageUrl(),
