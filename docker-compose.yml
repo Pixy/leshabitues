@@ -11,8 +11,6 @@ services:
       MYSQL_DATABASE: leshabitues
     ports:
       - "3306:3306"
-    depends_on:
-      - adminer
 
   app:
     build:
