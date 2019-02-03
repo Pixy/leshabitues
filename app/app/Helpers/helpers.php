@@ -3,7 +3,6 @@
  * Helpers file
  */
 
-
 if (!function_exists('computeHash')) {
     /**
      * Generate hash for current object based on all other attributes
