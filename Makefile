@@ -6,7 +6,10 @@ clean:
 	docker-compose kill
 	docker-compose down -v
 
-init: build
+composer-install:
+	cd app && composer install
+
+init: build composer-install
 	docker-compose up -d app
 
 shell:
