@@ -34,6 +34,7 @@ $factory->define(App\Shop::class, function () {
         'chain' => $shopName,
         'address' => $faker->address,
         'zipCode' => $faker->numberBetween(),
+        'city' => $faker->city,
         'category_id' => $category_id,
         'category_name' => $category_name,
         'logo' => $faker->imageUrl(),

@@ -23,6 +23,7 @@ class CreateShopsTable extends Migration
             $table->string('chain');
             $table->string('address');
             $table->integer('zipCode');
+            $table->string('city');
             $table->integer('category_id');
             $table->string('category_name');
             $table->string('logo');
