@@ -12,9 +12,12 @@ if (!function_exists('computeHash')) {
      */
     function computeHash($attributes = [])
     {
-        // Make sure there isn't already a hash in the array
-        if (isset($attributes['hash'])) {
-            unset($attributes['hash']);
+        // Make sure we do not compute those attributes, otherwise the hash will never be the same
+        $attributesToFilter = ['id', 'hash', 'created_at', 'updated_at'];
+        foreach ($attributesToFilter as $attr) {
+            if (isset($attributes[$attr])) {
+                unset($attributes[$attr]);
+            }
         }
 
         // Ensure all values are strings, to avoid issue while comparing
@@ -23,8 +26,6 @@ if (!function_exists('computeHash')) {
         });
 
         $hashString = json_encode($attributes);
-        $hash = strlen($hashString) . hash('sha256', $hashString);
-
-        return $hash;
+        return strlen($hashString) . hash('sha256', $hashString);
     }
 }
